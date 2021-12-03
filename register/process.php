@@ -10,6 +10,14 @@ function tambahUser($data){
     $password = htmlspecialchars($data["password"]);
     $role = $data["role"];
 
+    if(empty($nama_user)) {
+        echo "Username Tidak Boleh Kosong";
+    } elseif (empty($username)) {
+        echo "Username Tidak Boleh Kosong";
+    } elseif (empty($password)) {
+        echo "Username Tidak Boleh Kosong";
+    }
+
     $query ="INSERT INTO user VALUES(NULL, '$nama_user', '$username', '$password', '$role')";
     mysqli_query($conn, $query);
 

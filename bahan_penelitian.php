@@ -6,17 +6,11 @@ $id = $_GET['id'];
 
 $result = mysqli_query($conn, "SELECT * FROM barang WHERE id_barang = '$id'");
 
-if(isset($_POST["submit"])){
+if(isset($_POST['submit'])){
     if(editBarang($_POST) > 0){
-        echo "<script type='text/javascript'>
-        alert('Data barang berhasil diubah')
-        window.location = 'produk.php'
-        </script>";
+        header("location:produk.php");
     }else{
-        echo "<script type='text/javascript'>
-        alert('Data barang gagal diubah')
-        window.location = 'edit_barang.php'
-        </script>";
+        $error = true;
     }
 }
 
@@ -31,6 +25,12 @@ if(isset($_POST["submit"])){
             Batal
         </button>
     <div class="container-form">
+        <?php if (isset($error)) : ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Maaf gagal untuk mengedit barang
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+        <?php endif; ?> 
         <form action="" method="post" enctype="multipart/form-data">
             <?php while ($detail = mysqli_fetch_assoc($result)) : ?>
             <input type="hidden" name="id_barang" value="<?= $detail["id_barang"] ?>">

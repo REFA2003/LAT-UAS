@@ -49,7 +49,7 @@ if(isset($_POST["register"])){
         <label>Role</label>
         <select name="role" class="form-control2">
             <option value="admin">Admin</option>
-            <option value="customer">Customer</option>
+            <option value="user">Customer</option>
         </select>
         <br><br>
         <button type="submit" name="register">Register</button>

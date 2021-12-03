@@ -17,18 +17,19 @@ if($data['role'] == "admin"){
     $_SESSION["nama"] = $data["nama"];
     $_SESSION["role"] = $data["role"];
     header("location: ../admin/index.php");
-}else if($data['roles'] == "user"){
+}else if($data['role'] == "user"){
     session_start();
-    $_SESSION["username"] = $data["customer"];
+    $_SESSION["username"] = $data["username"];
     $_SESSION["nama"] = $data["nama"];
     $_SESSION["role"] = $data["role"];
-    header("location: ../customer/index.php");
+    header("location: ../user/index.php");
 }
 
 }else{
     echo "
         <script type='text/javascript'>
         alert('Username dan Password tidak ditemukan')
+        window.location='index.php'
         </script>
     ";
 }

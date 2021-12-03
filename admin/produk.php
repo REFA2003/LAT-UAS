@@ -58,7 +58,7 @@ $barang = query("SELECT * FROM barang");
                 <td><?= number_format($data['harga_satuan']); ?></td>
                 <td><?= $data['stok_barang']; ?></td>
                 <td>
-                    <a href="edit_barang.php?url=edit_barang&id=<?php echo $data['id_barang']; ?>" class="">
+                    <a href="edit_barang.php?id=<?= $data["id_barang"]; ?>" class="">
                     Edit</a>
                     <a href="hapus_barang.php?id=<?= $data['id_barang']; ?>" class=""
                     >Hapus</a>
@@ -68,3 +68,6 @@ $barang = query("SELECT * FROM barang");
             <?php endforeach; ?>
     </table>
 </div>
+
+<a href=""></a>
+</b>

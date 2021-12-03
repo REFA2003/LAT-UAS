@@ -10,6 +10,7 @@ if(hapusBarang($id) > 0){
         window.location = 'produk.php'
         </script>";
 }else{
+    
     echo "<script type='text/javascript'>
         alert('Data produk gagal dihapus')
         window.location = 'produk.php'

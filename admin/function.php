@@ -45,7 +45,7 @@ function hapusBarang($id){
 function editBarang($databarang){
 
     global $conn;
-
+    
     $id_barang = htmlspecialchars($databarang["id_barang"]);
     $nama_barang = htmlspecialchars($databarang["nama_barang"]);
     $jenis_barang = htmlspecialchars($databarang["jenis_barang"]);
@@ -53,13 +53,14 @@ function editBarang($databarang){
     $files = $_FILES["foto"]["tmp_name"];
     $harga_satuan = htmlspecialchars($databarang["harga_satuan"]);
     $stok_barang = htmlspecialchars($databarang["stok_barang"]);
-
-    mysqli_query($conn, "UPDATE barang SET id_barang = '$id_barang', nama_barang = '$nama_barang', jenis_barang = '$jenis_barang', foto = '$foto', harga_satuan = '$harga_satuan', stok_barang = '$stok_barang'");
-
+    
+    $query = "UPDATE barang SET nama_barang = '$nama_barang', jenis_barang = '$jenis_barang', foto = '$foto', harga_satuan = '$harga_satuan', stok_barang = '$stok_barang' WHERE id_barang = '$id_barang'";
+    
     move_uploaded_file($files, "../foto".$foto);
-
+    
+    mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
-
-}
+    
+    }
 
 ?>
