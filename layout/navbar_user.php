@@ -20,13 +20,10 @@
           <a class="nav-link active" aria-current="page" href="index.php">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="produk.php">Transaki</a>
+          <a class="nav-link active" aria-current="page" href="">Cart</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Data Transaksi</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Verifikasi Transaksi</a>
+          <a class="nav-link active" aria-current="page" href="#">Your Order</a>
         </li>
       </ul>
     </div>

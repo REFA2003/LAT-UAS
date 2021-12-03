@@ -21,7 +21,7 @@ return mysqli_affected_rows($conn);
 }
 ?>
 
-
+<?php
 function editBarang($databarang){
 
     global $conn;

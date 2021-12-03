@@ -50,13 +50,18 @@ function editBarang($databarang){
     $nama_barang = htmlspecialchars($databarang["nama_barang"]);
     $jenis_barang = htmlspecialchars($databarang["jenis_barang"]);
     $foto = $_FILES["foto"]["name"];
-    $files = $_FILES["foto"]["tmp_name"];
+    $file = $_FILES['foto']['tmp_name'];
     $harga_satuan = htmlspecialchars($databarang["harga_satuan"]);
     $stok_barang = htmlspecialchars($databarang["stok_barang"]);
     
-    $query = "UPDATE barang SET nama_barang = '$nama_barang', jenis_barang = '$jenis_barang', foto = '$foto', harga_satuan = '$harga_satuan', stok_barang = '$stok_barang' WHERE id_barang = '$id_barang'";
-    
-    move_uploaded_file($files, "../foto".$foto);
+    $query = "UPDATE barang SET id_barang = '$id_barang'
+                                nama_barang = '$nama_barang', 
+                                jenis_barang = '$jenis_barang', 
+                                foto = '$foto', 
+                                harga_satuan = '$harga_satuan', 
+                                stok_barang = '$stok_barang' 
+                                WHERE id_barang = '$id_barang'";
+    move_uploaded_file($file, "../foto/".$foto);
     
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
