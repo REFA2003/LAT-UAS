@@ -2,7 +2,7 @@
 
 session_start();
 
-require '../koneksi.php';
+require 'function.php';
 
 if(!isset($_SESSION["username"])){
     echo "
@@ -21,27 +21,24 @@ if($_SESSION["role"] !="user"){
         </script>
         ";
 }
+
+$barang = view();
+
 ?>
 
 <?php include '../layout/navbar_user.php'; ?>
-<section>
-    <div style="display: flex;">
-<div class="card mt-5 m-5" style="width: 18rem;">
-  <img src="../foto/SEAGATE.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
 
+<div style="display:flex;">
+<?php foreach($barang as $data) : ?>
 <div class="card mt-5 m-5" style="width: 18rem;">
-  <img src="../foto/VGEN.png" class="card-img-top" alt="...">
+  <img src="../foto/<?= $data['foto']; ?>" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title"><?= $data['nama_barang']; ?></h5>
+    <p class="card-text"><?= $data['jenis_barang']; ?></p>
+    <p class="card-text">Rp <?= number_format($data['harga_satuan']); ?></p>
+    <p class="card-text">Stok : <?= $data['stok_barang']; ?></p>
+    <a href="detail_barang.php?id=<?= $data['id_barang']; ?>" class="btn btn-primary">Beli Barang</a>
   </div>
 </div>
+<?php endforeach; ?>
 </div>
-</section>
