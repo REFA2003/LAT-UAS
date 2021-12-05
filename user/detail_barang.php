@@ -5,8 +5,7 @@ require 'function.php';
 
 $id = $_GET['id'];
 
-$SSD = query("SELECT * FROM barang WHERE id_barang = $id")[0];
-
+$SSD = mysqli_query($conn,"SELECT * FROM barang WHERE id_barang = '$id'");
 
 ?>
 
@@ -23,39 +22,24 @@ $SSD = query("SELECT * FROM barang WHERE id_barang = $id")[0];
         <p class="paragraph"><?= $result['jenis_barang']; ?></p>
 
         <div class="quantity-detail">
-            <h4>Jumlah Barang</h4>
+            <h4>Stok Barang</h4>
 
-            <form action="#" method="post">
-                <div class="quantity">
+            <form method="post">
+                <!-- <div class="quantity">
                     <input type="number" min="1" class="form-control" name="jumlah_barang" value="1">
-                </div>
+                </div> -->
+                <h3><?= $result['stok_barang']; ?></h3>
+                <h3>Harga Satuan</h3>
                 <div style="display: flex;">
-                <span style="margin-top: 19px; font-weight: bold; font-size: 23px; margin-right: 5px;">Rp. </span>
-                    <h3 style="margin-top: 20px;" id="harga_satuan"><?= number_format($result['harga_satuan']); ?></h3>
+                <span style="margin-top: 5px; font-weight: bold; font-size: 23px; margin-right: 5px;">Rp. </span>
+                    <h3 style="margin-top: 5px;" id="harga_satuan"><?= number_format($result['harga_satuan']); ?></h3>
                 </div>
+                <!-- <button class="btn btn-outline-secondary" type="submit" name="submit">Masukan Keranjang</button> -->
+
+                <a href="cart.php?id=<?= $result['id_barang'];?>">Masukkan</a>
             </form>
-            <button class="btn btn-outline-secondary" type="submit" name="beli">Masukan Keranjang</button>
         </div>
         </div>
     </div>
 <?php endwhile ?>
 </section>
-
-<?php
-if(isset($_POST['beli'])){
-    $jumlah = $_POST['jumlah'];
-
-    $barang = $_SESSION['cart'][$id] = $jumlah;
-    if($barang >= 10){
-        unset($_SESSION['cart'][$id]);
-        echo "<script>alert('Maaf produk terlalu banyak untuk ditambahkan!')
-                window.location:index.php
-                </script>";
-    }
-    echo "<script>alert('Produk telah ditambahkan ke keranjang belanja')
-                window.location:index.php
-                </script>";
-}
-
-
-
