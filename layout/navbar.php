@@ -23,10 +23,7 @@
           <a class="nav-link active" aria-current="page" href="produk.php">Data Produk</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Data Transaksi</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Verifikasi Transaksi</a>
+          <a class="nav-link active" aria-current="page" href="verifikasi_transaksi.php">Verifikasi Transaksi</a>
         </li>
       </ul>
     </div>

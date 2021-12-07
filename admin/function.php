@@ -78,4 +78,41 @@ function editBarang($databarang){
     }
 }
 
+function tampilkan_transaksi(){
+    global $conn;
+
+    $query = "SELECT * FROM transaksi";
+
+    $result = mysqli_query($conn, $query);
+
+    $rows = [];
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+
+    return $rows;
+}
+
+function accept($id){
+    global $conn;
+
+    $query = "UPDATE transaksi SET status = 'accept' WHERE id_transaksi='$id'";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
+function batal($id){
+    global $conn;
+
+    $query = "UPDATE transaksi SET status = 'batal' WHERE id_transaksi='$id'";
+
+    if (mysqli_query($conn, $query)) {
+        return true;
+    } else{
+        return false;
+    }
+}
+
 ?>
