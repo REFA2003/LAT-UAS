@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container-box">
-    <center><h2>LOGIN</h2></center>
+    <center><img src="../PNG/techsvg.svg" alt="" width="130px"></center><br><br>
 
     <form action="process.php" method="POST">
         <label>Username</label>

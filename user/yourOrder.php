@@ -20,6 +20,7 @@ $transaksi = tampilkan_transaksi_user($nama);
                 <div style="margin-bottom: 0px;">
                   <p class="card-text">Harga Total : <?= $row["total_harga"]; ?></p>
                 </div>
+                <br>
                 <div>
                 <?php if ($row['status'] == "accept") : ?>
         <p class="btn btn-success" style="margin: 2px;"><?= $row['status'] ?></p>

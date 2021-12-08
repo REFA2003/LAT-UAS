@@ -4,6 +4,8 @@ session_start();
 
 require 'function.php';
 
+
+
 if(!isset($_SESSION["username"])){
     echo "
         <script type='text/javascript'>
@@ -22,7 +24,6 @@ if($_SESSION["role"] !="user"){
         ";
 }
 
-$barang = view();
 
 ?>
 

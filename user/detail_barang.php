@@ -33,10 +33,10 @@ $SSD = mysqli_query($conn,"SELECT * FROM barang WHERE id_barang = '$id'");
                 <div style="display: flex;">
                 <span style="margin-top: 5px; font-weight: bold; font-size: 23px; margin-right: 5px;">Rp. </span>
                     <h3 style="margin-top: 5px;" id="harga_satuan"><?= number_format($result['harga_satuan']); ?></h3>
-                </div>
+                </div> <br>
                 <!-- <button class="btn btn-outline-secondary" type="submit" name="submit">Masukan Keranjang</button> -->
 
-                <a href="cart.php?id=<?= $result['id_barang'];?>">Masukkan</a>
+                <a href="cart.php?id=<?= $result['id_barang'];?>" class="btn btn-outline-primary">Lanjutkan Pembayaran</a>
             </form>
         </div>
         </div>

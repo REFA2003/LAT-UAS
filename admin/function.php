@@ -15,6 +15,23 @@ function query($query){
     return $rows;
 }
 
+function view(){
+    global $conn;
+
+    $query = "SELECT * FROM barang";
+
+    $result = mysqli_query($conn, $query);
+
+    $rows = [];
+        
+        while ($row = mysqli_fetch_assoc($result)) {
+            $rows[] = $row;
+        }
+
+        return $rows;
+
+}
+
 function tambahProduk($data){
 
     global $conn;
@@ -39,6 +56,13 @@ function hapusBarang($id){
     global $conn;
 
     mysqli_query($conn, "DELETE FROM barang WHERE id_barang = $id");
+    return mysqli_affected_rows($conn);
+}
+
+function deleteTransaksi($id){
+    global $conn;
+
+    mysqli_query($conn, "DELETE FROM transaksi WHERE id_transaksi = $id");
     return mysqli_affected_rows($conn);
 }
 

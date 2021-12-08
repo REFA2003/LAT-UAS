@@ -16,13 +16,23 @@ if($data['role'] == "admin"){
     $_SESSION["username"] = $data["username"];
     $_SESSION["nama"] = $data["nama"];
     $_SESSION["role"] = $data["role"];
-    header("location: ../admin/index.php");
+    echo "
+        <script type='text/javascript'>
+        alert('Selamat Datang Min :)')
+        window.location='../admin/index.php'
+        </script>
+    ";
 }else if($data['role'] == "user"){
     session_start();
     $_SESSION["username"] = $data["username"];
     $_SESSION["nama"] = $data["nama"];
     $_SESSION["role"] = $data["role"];
-    header("location: ../user/index.php");
+    echo "
+        <script type='text/javascript'>
+        alert('Anda Berhasil Login, Silahkan Belanja')
+        window.location='../user/index.php'
+        </script>
+    ";
 }
 
 }else{

@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +30,8 @@
       </ul>
     </div>
     <form class="d-flex logout">
-      <a href="../logout.php" class="btn btn-outline-primary" type="submit">
+      <a href="../logout.php" class="btn btn-outline-primary" type="submit"
+      onclick="return confirm('Anda yakin mau log out?')">
         Log Out
       </a>
     </form>
