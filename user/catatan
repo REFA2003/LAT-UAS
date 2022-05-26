@@ -1,0 +1,33 @@
+if (!empty($tanggal_transaksi) && !empty($jumlah_barang)) {
+        if (checkout($nama, $nama_barang, $tanggal_transaksi, $jumlah_barang, $harga_total)) {
+            echo "<script>
+                alert('Pembelian Berhasil');
+                location='yourOrder.php';
+            </script>";
+        } else{
+            $error = "terjadi kesalahan";
+        }
+    } else{
+        $error = "data harus diisi";
+    }
+
+
+
+    if (!empty($tanggal_transaksi) && !empty($jumlah_barang)){
+        $insert = mysqli_query($conn, "INSERT INTO transaksi (id_barang, id_user, tgl_transaksi, jumlah_barang, total_harga) 
+        VALUES ('$nama_barang', '$nama', '$tanggal_transaksi', '$jumlah_barang', '$harga_total')");
+    } if($insert){
+        
+    }
+
+
+ if (!empty($tanggal_transaksi) && !empty($jumlah_barang)){
+        $insert = mysqli_query($conn, "INSERT INTO transaksi (id_barang, id_user, tgl_transaksi, jumlah_barang, total_harga) 
+        VALUES ('$nama_barang', '$nama', '$tanggal_transaksi', '$jumlah_barang', '$harga_total')");
+    } if ($insert){
+        $upstok = mysqli_query($conn, "UPDATE barang SET stok_barang = '$sisa' WHERE id='$id_barang'");
+        echo "<script>
+                alert('Pembelian Berhasil');
+                location='yourOrder.php';
+            </script>";
+    }

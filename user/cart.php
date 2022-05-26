@@ -25,19 +25,21 @@ if (isset($_POST['submit'])) {
     $jumlah_barang = $_POST['jumlah_barang'];
     $harga_satuan = $_POST['harga_satuan'];
     $harga_total = $harga_satuan*$jumlah_barang;
+    $sisa = $stok_barang-$jumlah_barang;
+//catatan
 
-    if (!empty($tanggal_transaksi) && !empty($jumlah_barang)) {
-        if (checkout($nama, $nama_barang, $tanggal_transaksi, $jumlah_barang, $harga_total)) {
-            echo "<script>
-                alert('Pembelian Berhasil');
-                location='yourOrder.php';
-            </script>";
-        } else{
-            $error = "terjadi kesalahan";
-        }
+if (!empty($tanggal_transaksi) && !empty($jumlah_barang)) {
+    if (checkout($nama, $nama_barang, $tanggal_transaksi, $jumlah_barang, $harga_total)) {
+        echo "<script>
+            alert('Pembelian Berhasil');
+            location='yourOrder.php';
+        </script>";
     } else{
-        $error = "data harus diisi";
+        $error = "terjadi kesalahan";
     }
+} else{
+    $error = "data harus diisi";
+}
 }
 ?>
 

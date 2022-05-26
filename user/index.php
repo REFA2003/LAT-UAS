@@ -4,7 +4,7 @@ session_start();
 
 require 'function.php';
 
-
+$barang = view();
 
 if(!isset($_SESSION["username"])){
     echo "

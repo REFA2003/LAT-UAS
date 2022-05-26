@@ -37,6 +37,7 @@ if(isset($_POST["register"])){
     <center><h2>Register</h2></center>
 
     <form action="" method="POST">
+        
         <label>Nama Lengkap</label>
         <input type="text" name="nama_user" class="form-control2"><br /> <br/>
 

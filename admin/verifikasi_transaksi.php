@@ -40,7 +40,8 @@ $verifikasi = tampilkan_transaksi();
         <?php else: ?>
         <p><?= $data['status'] ?></p>
         <a href="process_accept.php?id=<?= $data['id_transaksi'] ?>" class="btn btn-success">Accept</a>
-        <a href="process_batal.php?id=<?= $data['id_transaksi'] ?>" class="btn btn-danger">Batal</a>
+        <a href="process_batal.php?id=<?= $data['id_transaksi'] ?>" class="btn btn-danger"
+        onclick="return confirm('Anda yakin ingin membatalkan proses transaksi ini?')">Batal</a>
         <?php endif;?>
       </td>
       <td>

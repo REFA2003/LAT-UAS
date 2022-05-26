@@ -2,6 +2,10 @@ body{
     background: #edf2f4;
 }
 
+.container{
+    
+}
+
 .container-box {
     background-color: #fff;
     width: 500px;
@@ -125,6 +129,39 @@ th, td{
     border-radius: 25px;
     border: none;
     cursor: pointer;
+}
+
+.btn-sukses {
+    width: 50%;
+    background: #2a9d8f;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 19px;
+    text-align: center;
+    font-family: sans-serif;
+    border: none;
+}
+
+.btn-yabai {
+    width: 50%;
+    background: #fca311;
+    color: rgb(0, 0, 0);
+    padding: 12px 20px;
+    border-radius: 19px;
+    text-align: center;
+    font-family: sans-serif;
+    border: none;
+}
+
+.btn-batal {
+    width: 50%;
+    background: #e63946;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 19px;
+    text-align: center;
+    font-family: sans-serif;
+    border: none;
 }
 
 .btn-barang2 {
